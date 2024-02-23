@@ -23,7 +23,7 @@ body{
     gap: 16px; 
     justify-content: center; 
 }
-button{
+#show-dialog{
     color:black;
     width: 6em;
     font-size:1.5em;

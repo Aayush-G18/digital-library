@@ -58,10 +58,16 @@ dialog.addEventListener("close", (e) => {
 });
 
 confirmBtn.addEventListener("click", (event) => {
-    event.preventDefault(); 
-    const confirmValue = new Book(title.value,author.value);
-    addBookToLibrary(confirmValue.title,confirmValue.author);
-    dialog.close(); 
+    event.preventDefault();
+    if (title.value.trim() === '' || author.value.trim() === '') {
+        alert('Please fill in both title and author fields.');
+        event.preventDefault();
+    }
+    else{
+        const confirmValue = new Book(title.value,author.value);
+        addBookToLibrary(confirmValue.title,confirmValue.author);
+        dialog.close(); 
+    }
 });
 
 cancelBtn.addEventListener("click", (event) => {
