@@ -8,7 +8,30 @@
 </head>
 <body>
     <header class="title">My Digital Library</header>
-
+    <dialog id="dialog">
+        <form method="dialog">
+            <p>
+                <label>
+                    Title:
+                    <input type="text" id="title" required />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Author:
+                    <input type="text" id="author" required />
+                </label>
+            </p>
+            <div>
+                <button id="cancelBtn" type="button">Cancel</button>
+                <button id="confirmBtn" value="default">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+        <p>
+            <button id="show-dialog">Add Book</button>
+        </p>
+    <output></output>
     <div class="container">
         
     </div>
