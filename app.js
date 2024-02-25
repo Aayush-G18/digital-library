@@ -30,30 +30,30 @@ function toggleRead(index) {
 }
 
 // Section 4: Rendering Functions
+
 function renderLibrary() {
     var container = document.querySelector('.container');
     container.innerHTML = '';
 
-    var readBtnTemplate = document.createElement('input');
-    readBtnTemplate.type = 'checkbox';
-
-    var deleteBtnTemplate = document.createElement('button');
-    var image = document.createElement("img");
-    image.src = "dustbin.png";
-    image.style.width = "30px";
-    deleteBtnTemplate.style.border = "none";
-    deleteBtnTemplate.classList.add('deleteBtn');
-    deleteBtnTemplate.appendChild(image);
-
     myLibrary.forEach(function(book, index) {
         var child = document.createElement('div');
         child.textContent = book.info();
-        var readBtn = readBtnTemplate.cloneNode(true);
+        
+        var readBtn = document.createElement('input');
+        readBtn.type = 'checkbox';
+        readBtn.checked = book.read; // Set the checked attribute based on the read property
         readBtn.setAttribute('data-book-index', index);
         readBtn.classList.add('readBtn');
-        var deleteBtn = deleteBtnTemplate.cloneNode(true);
+        
+        var deleteBtn = document.createElement('button');
+        var image = document.createElement("img");
+        image.src = "dustbin.png";
+        image.style.width = "30px";
+        deleteBtn.style.border = "none";
+        deleteBtn.classList.add('deleteBtn');
+        deleteBtn.appendChild(image);
         deleteBtn.setAttribute('data-book-index', index);
-        deleteBtn.classList.add('deleteBtn'); 
+        
         child.appendChild(readBtn);
         child.appendChild(deleteBtn);
         child.classList.add('child');
